@@ -20,6 +20,12 @@ function sampleData() {
 
 jQuery(document).ready(function(){
 
+  var calId = "#mycal";
+
+  var jfcalplugin = $(calId).jFrontierCal({
+    date: new Date()
+  }).data("plugin");
+
   $("#search #do-search").click(function(){
 
     var events = sampleData();
@@ -33,15 +39,20 @@ jQuery(document).ready(function(){
       return (open && containsLocation)
     });
   
+    jfcalplugin.deleteAllAgendaItems();
+
+    newEvents.forEach(function(e){
+      jfcalplugin.addAgendaItem(
+        calId
+        , "Course with " + e["instructor"]
+        , e["from"]
+        , e["to"]
+        , false
+      );
+    });
+
     console.debug(newEvents);
 
   });
-
-  /**
-   * Initialize with current year and date. Returns reference to plugin object.
-   */
-  var jfcalplugin = $("#mycal").jFrontierCal({
-    date: new Date()
-  }).data("plugin");
 
 });
