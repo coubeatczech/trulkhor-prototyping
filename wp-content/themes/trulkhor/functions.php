@@ -22,9 +22,12 @@ function enqueue_calendar_scripts() {
   wp_register_script("calendar-plugin", $theme_root . "/js/frontierCalendar/jquery-frontier-cal-1.3.2.min.js");
   wp_enqueue_script("calendar-plugin");
   
+  wp_register_script("google-maps-v3", "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFh91qY8ev3rrP2HGcgL64g4W-4uAdU6E");
+  wp_enqueue_script("google-maps-v3");
+  
   wp_register_script("my-script", $theme_root . "/script.js");
   wp_enqueue_script("my-script");
-  
+
 
   wp_register_style("calendar-jQuery-style", $theme_root . "/css/frontierCalendar/jquery-frontier-cal-1.3.2.css");
   wp_enqueue_style("calendar-jQuery-style");

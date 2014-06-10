@@ -26,3 +26,6 @@ ul {
   border: 2px solid black;
 }
 
+#google-map {
+  height: 400px;
+}

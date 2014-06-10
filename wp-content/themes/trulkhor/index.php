@@ -39,6 +39,7 @@ get_header(); ?>
   </div>
   
   <div id="search-result-map" class="box high-box">
+    <div id="google-map"></div>
   </div>
   
   <div style="clear:both;"></div>
