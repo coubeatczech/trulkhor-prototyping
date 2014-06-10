@@ -88,7 +88,21 @@ jQuery(document).ready(function(){
     p.find("input").attr("value", "");
   });
 
+  var map = null;
+  var markers = [];
+
   $(searchLink).click(function(){
+
+    $("#google-map").empty();
+
+    //if (map == null) {
+      //function initialize() {
+        map = new google.maps.Map(document.getElementById("google-map"));
+/*
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+*/
+    //} 
 
     var data = sampleData();
     var events = data["events"];
@@ -127,6 +141,29 @@ jQuery(document).ready(function(){
     }
 
     var searchResultList = "#search-result-list";
+    var bounds = new google.maps.LatLngBounds();
+    var idsOfLocationOnTheMap = [];
+    
+    function addItemToMap(e) {
+      var locationInTheMap = idsOfLocationOnTheMap.find(function(id){
+        return id == e["location"];
+      })
+      if (locationInTheMap == null) {
+        var loc = getLocation(e);
+        var position = new google.maps.LatLng(
+          loc["lat"] 
+          , loc["lng"]
+        );
+        bounds.extend(position);
+        var markerOptions = {
+          position: position
+          , map: map
+        };
+        var marker = new google.maps.Marker(markerOptions);
+        marker.setMap(map);
+        markers.push(marker);
+      } 
+    }
 
     function addItemToList(e) {
       var content = "<li>" + e["description"] + " with: " + e["instructor"] + " in: " + getLocation(e)["name"] + "</li>";
@@ -137,26 +174,27 @@ jQuery(document).ready(function(){
       $(searchResultList).empty();      
     }  
 
+    function clearMap() {
+      markers.forEach(function(m){
+        m.setMap(null);
+      });
+      markers = [];
+    }
+
     jfcalplugin.deleteAllAgendaItems(calId);
     clearList();
+    clearMap();
 
     newEvents.forEach(function(e){
       addItemToCalendar(e);
       addItemToList(e);
+      addItemToMap(e);
     });
+    map.fitBounds(bounds);
 
   });
   
   $(searchLink).click();  
 
 });
-
-function initialize() {
-  var mapOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
-    zoom: 8
-  };
-  var map = new google.maps.Map(document.getElementById("google-map"), mapOptions);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
 
