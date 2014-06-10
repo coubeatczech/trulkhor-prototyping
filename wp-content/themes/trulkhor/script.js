@@ -4,50 +4,56 @@ function sampleData() {
     return new Date(2014, 5, day, 0, 0, 0, 0);
   }
 
-  var event1 = {
-    "from": byDay(1)
-    , "to": byDay(3)
-    , "location": 1
-    , "instructor": "Fijalka"
-    , "open": false
-    , "description": "1 and 2 series"
-  }
-
-  var event2 = {
-    "from": byDay(10)
-    , "to": byDay(15)
-    , "location": 1
-    , "instructor": "Jeff Sable"
-    , "open": true
-    , "description": "Introductory course into Yantra Yoga"
-  }
-  
-  var event3 = {
-    "from": byDay(14)
-    , "to": byDay(17)
-    , "location": 1
-    , "instructor": "Samantha Sable"
-    , "open": true
-    , "description": "Kumar Kumari instructed right from the womb"
-  }
-  
-  var event4 = {
-    "from": byDay(18)
-    , "to": byDay(22)
-    , "location": 2
-    , "instructor": "Medved"
-    , "open": false
-    , "description": "Medved just stopped the hibernation and will be giving Lung Sang course"
-  }
-  
-  var event5 = {
-    "from": byDay(19)
-    , "to": byDay(29)
-    , "location": 1
-    , "instructor": "Jeff Sable"
-    , "open": false
-    , "description": "Harmonious breathing course"
-  }
+  var events = [
+    {
+      "from": byDay(1)
+      , "to": byDay(3)
+      , "location": 1
+      , "instructor": "Fijalka"
+      , "open": false
+      , "description": "1 and 2 series"
+    }
+    , {
+      "from": byDay(10)
+      , "to": byDay(15)
+      , "location": 1
+      , "instructor": "Jeff Sable"
+      , "open": true
+      , "description": "Introductory course into Yantra Yoga"
+    }
+    , {
+      "from": byDay(14)
+      , "to": byDay(17)
+      , "location": 1
+      , "instructor": "Samantha Sable"
+      , "open": true
+      , "description": "Kumar Kumari instructed right from the womb"
+    }
+    , {
+      "from": byDay(18)
+      , "to": byDay(22)
+      , "location": 2
+      , "instructor": "Medved"
+      , "open": false
+      , "description": "Medved just stopped the hibernation and will be giving Lung Sang course"
+    }
+    , {
+      "from": byDay(19)
+      , "to": byDay(29)
+      , "location": 1
+      , "instructor": "Jeff Sable"
+      , "open": true
+      , "description": "Harmonious breathing course"
+    }
+    , {
+      "from": byDay(3)
+      , "to": byDay(7)
+      , "location": 3
+      , "instructor": "Medved"
+      , "open": true
+      , "description": "Kumbhaka course"
+    }
+  ];
 
   var locations = [
     {
@@ -55,16 +61,20 @@ function sampleData() {
       , "id": 1
       , "lat": 50.083097
       , "lng": 14.431969
-    },
-    {
+    }
+    , {
       "name": "Phendeling, Czech Republic"
       , "id": 2
       , "lat": 48.923881
       , "lng": 14.167849
     }
-  ]
-
-  var events = [event1, event2, event3, event4, event5];
+    , {
+      "name": "Brno, Czech Republic"
+      , "id": 3
+      , "lat": 49.200999
+      , "lng": 16.632614
+    }
+  ];
   
   return {
     "locations": locations
@@ -155,7 +165,7 @@ jQuery(document).ready(function(){
         lastPosition = position;
         var marker = new google.maps.Marker(markerOptions);
         marker.setMap(map);
-      } 
+      }
     }
 
     function addItemToList(e) {
