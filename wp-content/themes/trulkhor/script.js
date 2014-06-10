@@ -13,7 +13,25 @@ function sampleData() {
     , "description": "1 and 2 series"
   }
 
-  var events = [event1];
+  var event2 = {
+    "from": byDay(10)
+    , "to": byDay(15)
+    , "location": "Prague, Czech Republic"
+    , "instructor": "Jeff Sable"
+    , "open": true
+    , "description": "Introductory course into Yantra Yoga"
+  }
+  
+  var event3 = {
+    "from": byDay(14)
+    , "to": byDay(17)
+    , "location": "Prague, Czech Republic"
+    , "instructor": "Samantha Sable"
+    , "open": true
+    , "description": "Kumar Kumari instructed right from the womb"
+  }
+
+  var events = [event1, event2, event3];
   
   return events;
 
@@ -27,7 +45,9 @@ jQuery(document).ready(function(){
     date: new Date()
   }).data("plugin");
 
-  $("#search #do-search").click(function(){
+  var searchLink = "#search #do-search";
+
+  $(searchLink).click(function(){
 
     var events = sampleData();
 
@@ -61,8 +81,8 @@ jQuery(document).ready(function(){
       $(searchResultList).empty();      
     }  
 
-    jfcalplugin.deleteAllAgendaItems();
-    clearList();    
+    jfcalplugin.deleteAllAgendaItems(calId);
+    clearList();
 
     newEvents.forEach(function(e){
       addItemToCalendar(e);
@@ -72,5 +92,7 @@ jQuery(document).ready(function(){
     console.debug(newEvents);
 
   });
+  
+  $(searchLink).click();  
 
 });
