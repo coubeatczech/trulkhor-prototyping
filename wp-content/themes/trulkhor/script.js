@@ -89,20 +89,11 @@ jQuery(document).ready(function(){
   });
 
   var map = null;
-  var markers = [];
 
   $(searchLink).click(function(){
 
     $("#google-map").empty();
-
-    //if (map == null) {
-      //function initialize() {
-        map = new google.maps.Map(document.getElementById("google-map"));
-/*
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-*/
-    //} 
+    map = new google.maps.Map(document.getElementById("google-map"));
 
     var data = sampleData();
     var events = data["events"];
@@ -164,7 +155,6 @@ jQuery(document).ready(function(){
         lastPosition = position;
         var marker = new google.maps.Marker(markerOptions);
         marker.setMap(map);
-        markers.push(marker);
       } 
     }
 
@@ -177,13 +167,6 @@ jQuery(document).ready(function(){
       $(searchResultList).empty();      
     }  
 
-    function clearMap() {
-      markers.forEach(function(m){
-        m.setMap(null);
-      });
-      markers = [];
-    }
-
     function setCorrectMapView() {
       if (idsOfLocationOnTheMap.length == 1) {
         map.setCenter(lastPosition);
@@ -195,7 +178,6 @@ jQuery(document).ready(function(){
 
     jfcalplugin.deleteAllAgendaItems(calId);
     clearList();
-    clearMap();
 
     newEvents.forEach(function(e){
       addItemToCalendar(e);
