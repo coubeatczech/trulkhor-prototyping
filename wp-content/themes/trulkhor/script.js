@@ -143,12 +143,14 @@ jQuery(document).ready(function(){
     var searchResultList = "#search-result-list";
     var bounds = new google.maps.LatLngBounds();
     var idsOfLocationOnTheMap = [];
+    var lastPosition = null;
     
     function addItemToMap(e) {
       var locationInTheMap = idsOfLocationOnTheMap.find(function(id){
         return id == e["location"];
       })
       if (locationInTheMap == null) {
+        idsOfLocationOnTheMap.push(e["location"]);
         var loc = getLocation(e);
         var position = new google.maps.LatLng(
           loc["lat"] 
@@ -159,6 +161,7 @@ jQuery(document).ready(function(){
           position: position
           , map: map
         };
+        lastPosition = position;
         var marker = new google.maps.Marker(markerOptions);
         marker.setMap(map);
         markers.push(marker);
@@ -181,6 +184,15 @@ jQuery(document).ready(function(){
       markers = [];
     }
 
+    function setCorrectMapView() {
+      if (idsOfLocationOnTheMap.length == 1) {
+        map.setCenter(lastPosition);
+        map.setZoom(15);
+      } else {
+        map.fitBounds(bounds);
+      }
+    }
+
     jfcalplugin.deleteAllAgendaItems(calId);
     clearList();
     clearMap();
@@ -190,7 +202,7 @@ jQuery(document).ready(function(){
       addItemToList(e);
       addItemToMap(e);
     });
-    map.fitBounds(bounds);
+    setCorrectMapView();
 
   });
   
