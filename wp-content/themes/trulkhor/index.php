@@ -15,6 +15,15 @@ get_header(); ?>
 
   <div id="search" class="box small-box">
     <h2>Search for course:</h2>
+    <div>
+      <label for="location">Location</label>
+      <input type="text" id="location" value="Prague" />
+    </div>
+    <div>
+      <label for="open">Only Open</label>
+      <input type="checkbox" id="open" />
+    </div>
+    <a id="do-search" href="javascript://">Search</a>
   </div>
 
   <div id="search-result-list" class="box small-box">
