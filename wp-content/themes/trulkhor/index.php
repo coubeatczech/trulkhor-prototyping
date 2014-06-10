@@ -19,6 +19,10 @@ get_header(); ?>
       <label for="location">Location</label>
       <input type="text" id="location" value="Prague" /><a href="javascript://" class="clear">Clear</a>
     </div>
+    <div id="instructor-search">
+      <label for="instructor">Instructor</label>
+      <input type="text" id="instructor" value="" /><a href="javascript://" class="clear">Clear</a>
+    </div>
     <div>
       <label for="open">Only Open</label>
       <input type="checkbox" id="open" />

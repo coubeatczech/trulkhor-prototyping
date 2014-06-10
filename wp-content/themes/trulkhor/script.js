@@ -47,8 +47,9 @@ jQuery(document).ready(function(){
 
   var searchLink = "#search #do-search";
 
-  $("#location-search a.clear").click(function() {
-    $("#search #location").attr("value", "");
+  $("a.clear").click(function() {
+    var p = $(this).parent();
+    p.find("input").attr("value", "");
   });
 
   $(searchLink).click(function(){
@@ -57,11 +58,13 @@ jQuery(document).ready(function(){
 
     var loc = $("#search #location").attr("value");
     var openness = $("#search #open").attr("checked");
+    var instructorField = $("#search #instructor").attr("value");
 
     var newEvents = events.filter(function(e){
+      var containsInstructor = e["instructor"].indexOf(instructorField) > -1;
       var containsLocation = e["location"].indexOf(loc) > -1;
       var open = (openness == e["open"]) || e["open"];
-      return (open && containsLocation)
+      return (open && containsLocation && containsInstructor);
     });
 
     function addItemToCalendar(e) {
@@ -92,8 +95,6 @@ jQuery(document).ready(function(){
       addItemToCalendar(e);
       addItemToList(e);
     });
-
-    console.debug(newEvents);
 
   });
   
