@@ -2,7 +2,23 @@
 Theme Name: Trulkhor
 */
 
+#search-result-list {
+}
+
 #mycal {
-  width: 500px;
+}
+
+.high-box {
+  height: 400px;
+}
+
+.small-box {
+  height: 200px;
+}
+
+.box {
+  width:500px;
+  float: left;
+  border: 2px solid black;
 }
 

@@ -13,7 +13,21 @@ get_header(); ?>
 
 <div id="main-content" class="main-content">
 
-  <div id="mycal"></div>
+  <div id="search" class="box small-box">
+    <h2>Search for course:</h2>
+  </div>
+
+  <div id="search-result-list" class="box small-box">
+  </div>
+  
+  <div id="search-result-calendar" class="box high-box">
+    <div id="mycal"></div>
+  </div>
+  
+  <div id="search-result-map" class="box high-box">
+  </div>
+  
+  <div style="clear:both;"></div>
 
 </div><!-- #main-content -->
 
