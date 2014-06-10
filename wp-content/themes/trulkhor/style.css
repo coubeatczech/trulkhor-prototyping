@@ -2,6 +2,11 @@
 Theme Name: Trulkhor
 */
 
+ul {
+  margin:0px;
+  padding:0px;
+}
+
 #search-result-list {
 }
 

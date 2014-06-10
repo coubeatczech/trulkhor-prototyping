@@ -10,6 +10,7 @@ function sampleData() {
     , "location": "Prague, Czech Republic"
     , "instructor": "Fijalka"
     , "open": false
+    , "description": "1 and 2 series"
   }
 
   var events = [event1];
@@ -38,10 +39,8 @@ jQuery(document).ready(function(){
       var open = (openness == e["open"]) || e["open"];
       return (open && containsLocation)
     });
-  
-    jfcalplugin.deleteAllAgendaItems();
 
-    newEvents.forEach(function(e){
+    function addItemToCalendar(e) {
       jfcalplugin.addAgendaItem(
         calId
         , "Course with " + e["instructor"]
@@ -49,6 +48,25 @@ jQuery(document).ready(function(){
         , e["to"]
         , false
       );
+    }
+
+    var searchResultList = "#search-result-list";
+
+    function addItemToList(e) {
+      var content = "<li>" + e["description"] + " with: " + e["instructor"] + "</li>";
+      $(searchResultList).append(content);
+    }
+
+    function clearList() {
+      $(searchResultList).empty();      
+    }  
+
+    jfcalplugin.deleteAllAgendaItems();
+    clearList();    
+
+    newEvents.forEach(function(e){
+      addItemToCalendar(e);
+      addItemToList(e);
     });
 
     console.debug(newEvents);

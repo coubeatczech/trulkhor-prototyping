@@ -26,8 +26,9 @@ get_header(); ?>
     <a id="do-search" href="javascript://">Search</a>
   </div>
 
-  <div id="search-result-list" class="box small-box">
-  </div>
+  <ul id="search-result-list" class="box small-box">
+        
+  </ul>
   
   <div id="search-result-calendar" class="box high-box">
     <div id="mycal"></div>
