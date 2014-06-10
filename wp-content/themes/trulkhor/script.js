@@ -53,8 +53,8 @@ function sampleData() {
     {
       "name": "Prague, Czech Republic"
       , "id": 1
-      , "lat": 50.075651
-      , "lng": 14.438095
+      , "lat": 50.083097
+      , "lng": 14.431969
     },
     {
       "name": "Phendeling, Czech Republic"
