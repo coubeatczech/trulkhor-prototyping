@@ -13,17 +13,7 @@ get_header(); ?>
 
 <div id="main-content" class="main-content">
 
-		<?php
-			if ( have_posts() ) :
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-
-          the_content();
-
-				endwhile;
-
-			endif;
-		?>
+  <div id="mycal"></div>
 
 </div><!-- #main-content -->
 
