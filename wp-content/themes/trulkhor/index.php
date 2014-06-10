@@ -21,7 +21,7 @@ get_header(); ?>
     </div>
     <div id="instructor-search">
       <label for="instructor">Instructor</label>
-      <input type="text" id="instructor" value="" /><a href="javascript://" class="clear">Clear</a>
+      <input type="text" id="instructor" value="Sable" /><a href="javascript://" class="clear">Clear</a>
     </div>
     <div>
       <label for="open">Only Open</label>

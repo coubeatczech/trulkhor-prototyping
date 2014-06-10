@@ -30,8 +30,26 @@ function sampleData() {
     , "open": true
     , "description": "Kumar Kumari instructed right from the womb"
   }
+  
+  var event4 = {
+    "from": byDay(18)
+    , "to": byDay(22)
+    , "location": "Phendeling, Czech Republic"
+    , "instructor": "Medved"
+    , "open": false
+    , "description": "Medved just stopped the hibernation and will be giving Lung Sang course"
+  }
+  
+  var event5 = {
+    "from": byDay(19)
+    , "to": byDay(29)
+    , "location": "Prague, Czech Republic"
+    , "instructor": "Jeff Sable"
+    , "open": false
+    , "description": "Harmonious breathing course"
+  }
 
-  var events = [event1, event2, event3];
+  var events = [event1, event2, event3, event4, event5];
   
   return events;
 
@@ -80,7 +98,7 @@ jQuery(document).ready(function(){
     var searchResultList = "#search-result-list";
 
     function addItemToList(e) {
-      var content = "<li>" + e["description"] + " with: " + e["instructor"] + "</li>";
+      var content = "<li>" + e["description"] + " <strong>with</strong>: " + e["instructor"] + " <strong>in:</strong> " + e["location"] + "</li>";
       $(searchResultList).append(content);
     }
 
