@@ -15,9 +15,9 @@ get_header(); ?>
 
   <div id="search" class="box small-box">
     <h2>Search for course:</h2>
-    <div>
+    <div id="location-search">
       <label for="location">Location</label>
-      <input type="text" id="location" value="Prague" />
+      <input type="text" id="location" value="Prague" /><a href="javascript://" class="clear">Clear</a>
     </div>
     <div>
       <label for="open">Only Open</label>

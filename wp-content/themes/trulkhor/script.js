@@ -47,6 +47,10 @@ jQuery(document).ready(function(){
 
   var searchLink = "#search #do-search";
 
+  $("#location-search a.clear").click(function() {
+    $("#search #location").attr("value", "");
+  });
+
   $(searchLink).click(function(){
 
     var events = sampleData();
