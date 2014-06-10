@@ -35,11 +35,6 @@ function enqueue_calendar_scripts() {
   wp_register_style("calendar-smoothness", $theme_root . "/css/jquery-ui/smoothness/jquery-ui-1.8.1.custom.css");
   wp_enqueue_style("calendar-smoothness");
 
-/*
-  wp_register_style("my-style", $theme_root . "/style.css")
-  wp_enqueue_style("my-style");
-*/
-
 }
 
 add_action ("wp_enqueue_scripts", "enqueue_calendar_scripts");

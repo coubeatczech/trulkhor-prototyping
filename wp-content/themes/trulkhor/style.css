@@ -5,12 +5,11 @@ Theme Name: Trulkhor
 ul {
   margin:0px;
   padding:0px;
+  list-style-type:none;
 }
 
-#search-result-list {
-}
-
-#mycal {
+#search-result-list li {
+  border-top: 1px solid black;
 }
 
 .high-box {
